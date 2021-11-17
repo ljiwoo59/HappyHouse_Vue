@@ -10,9 +10,6 @@
         </li>
       </ul>
     </nav>
-    <input type="text" v-model="title"/>&nbsp;
-    <button @click="search" >검색</button>
-    <br><hr>
   </div>
 </template>
 
@@ -24,13 +21,6 @@ export default {
     }
   },
   methods: {
-    search() {
-      if (this.title != "") {
-        this.$store.dispatch("SEARCH");
-      } else {
-        alert("검색어를 입력해 주세요");
-      }
-    }
   }
 };
 </script>
