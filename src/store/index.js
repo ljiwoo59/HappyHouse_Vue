@@ -25,6 +25,7 @@ export default new Vuex.Store({
   actions: {
     ALLQNA: (store) => {
       axios.get("/qna").then((response) => {
+        console.log(response.data);
         store.commit("ALLQNA", { Qnas: response.data });
       });
     },
@@ -68,6 +69,11 @@ export default new Vuex.Store({
         .then(() => {
           store.dispatch("DETAILQNA", payload.num);
         });
+    },
+    DELETEQNA: (payload) => {
+      axios.delete("http://localhost/qna/" + payload).then(() => {
+        this.selectAll();
+      });
     },
   },
   modules: {},
