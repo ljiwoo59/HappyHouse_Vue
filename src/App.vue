@@ -10,9 +10,9 @@
 <script>
   import QnaHeader from "@/components/QnaHeader.vue";
   export default {
-    // created() {
-    //   this.$router.push("/");
-    // },
+     created() {
+       this.$router.push("/");
+     },
     components: {
       QnaHeader,
     }
