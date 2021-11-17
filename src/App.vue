@@ -8,6 +8,18 @@
   </div>
 </template>
 
+<script>
+// import TodoHeader from "./components/TodoHeader";
+export default {
+  // components:{
+  //   TodoHeader,
+  // },
+  // created() {
+  //   this.$router.push("/")
+  // },
+};
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
