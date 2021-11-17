@@ -1,14 +1,68 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from './axios-common'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    Qna: {},
+    Qnas: []
   },
   mutations: {
+    ALLQNA : (state, payload) => {
+      state.Qnas = payload.Qnas;
+    },
+    DETAILQNA : (state, payload) => {
+      state.Qna = payload;
+    }
   },
   actions: {
+    ADDQNA: (store, payload) => {
+      axios
+        .post("/qna", { 
+            num: payload.num,
+            title: payload.title,
+            content: payload.content
+        })
+        .then(() => {
+            //store.dispatch("ALLQNA");
+        })
+    },
+    SEARCH : (store, payload) => {
+      axios
+        .get("/qna/find/" + payload)
+        .then((response) => {
+          store.commit("ALLQNA", {Qnas: response.data});
+        })
+    },
+    MODIFY : (store, payload) => {
+      axios
+        .put("/qna", {
+          num: payload.num,
+          title: payload.title,
+          content: payload.content
+        })
+        .then(() => {
+          store.dispatch("DETAILQNA", payload.num);
+        })
+    },
+    DETAILQNA : (store, payload) => {
+      axios
+        .get("/qna/" + payload)
+        .then((response) => {
+          store.commit("DETAILANQ", response.data)
+        })
+    },
+    REPLY : (store, payload) => {
+      axios
+        .put("/qna", {
+          reply: payload.reply
+        })
+        .then(() => {
+          store.dispatch("DETAILQNA", payload.num);
+        })
+    }
   },
   modules: {
   }
