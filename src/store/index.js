@@ -54,6 +54,7 @@ export default new Vuex.Store({
           num: payload.num,
           title: payload.title,
           content: payload.content,
+          reply: payload.reply,
         })
         .then(() => {
           store.dispatch("DETAILQNA", payload.num);
@@ -63,18 +64,6 @@ export default new Vuex.Store({
       axios.get("/qna/" + payload).then((response) => {
         store.commit("DETAILQNA", response.data);
       });
-    },
-    REPLY: (store, payload) => {
-      axios
-        .put("/qna", {
-          num: payload.num,
-          title: payload.title,
-          content: payload.content,
-          reply: payload.reply,
-        })
-        .then(() => {
-          store.dispatch("DETAILQNA", payload.num);
-        });
     },
     DELETEQNA: (store, payload) => {
       axios.delete("/qna/" + payload).then(() => {

@@ -4,6 +4,7 @@ import QnaInput from "@/views/QnaInput.vue";
 import QnaList from "@/views/QnaList.vue";
 import QnaReply from "@/views/QnaReply.vue";
 import QnaDetail from "@/views/QnaDetail.vue";
+import QnaModify from "@/views/QnaModify.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/detail/:num",
     name: "QnaDetail",
     component: QnaDetail,
+  },
+  {
+    path: "/modify/",
+    name: "QnaModify",
+    component: QnaModify,
   },
 ];
 

@@ -48,7 +48,7 @@ export default {
     methods: {
         setReply() {
             this.$store.commit("SETREPLY", this.reply);
-            this.$store.dispatch("REPLY", this.$store.state.Qna);
+            this.$store.dispatch("MODIFY", this.$store.state.Qna);
             this.$router.push("/detail/Qna.num");
     },
     back() {

@@ -28,6 +28,7 @@
     </table>
 
     <span class="clearAllBtn" @click="back">돌아가기</span>&nbsp;&nbsp;
+    <span class="clearAllBtn" @click="mod">수정하기</span>&nbsp;&nbsp;
     <span class="clearAllBtn" @click="rp">답글달기</span>&nbsp;&nbsp;
   </div>
 </template>
@@ -49,8 +50,11 @@ export default {
         },
     rp() {
     this.$router.push("/reply");
-    }
     },
+    mod() {
+    this.$router.push("/modify");
+    },
+    }
 }
 </script>
 
