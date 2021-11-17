@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "../views/Home.vue";
+import QnaInput from "@/views/QnaInput.vue";
 import QnaList from "@/views/QnaList.vue";
 
 Vue.use(VueRouter);
@@ -10,6 +10,11 @@ const routes = [
     path: "/",
     name: "QnaList",
     component: QnaList,
+  },
+  {
+    path: "/input",
+    name: "QnaInput",
+    component: QnaInput,
   },
 ];
 

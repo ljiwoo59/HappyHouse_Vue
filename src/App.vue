@@ -1,23 +1,22 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+        <QnaHeader />
+        <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
 <script>
-// import TodoHeader from "./components/TodoHeader";
-export default {
-  // components:{
-  //   TodoHeader,
-  // },
-  // created() {
-  //   this.$router.push("/")
-  // },
-};
+  import QnaHeader from "@/components/QnaHeader.vue";
+  export default {
+    // created() {
+    //   this.$router.push("/");
+    // },
+    components: {
+      QnaHeader,
+    }
+  }
 </script>
 
 <style>

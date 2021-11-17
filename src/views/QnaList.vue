@@ -2,7 +2,7 @@
 	<div>
 		<section>
 			<transition-group name="list" tag="ul">
-				<li v-for="qna in qnas" :key="qna.num" class="shadow">
+				<li v-for="qna in Qnas" :key="qna.num" class="shadow">
 					
 					{{qna.num}}.
                     <router-link to="`/detail/${qna.num}`">{{qna.title}}</router-link>
@@ -39,7 +39,7 @@ export default {
 
     },
 	computed: {
-		...mapState(["qnas"]),
+		...mapState(["Qnas"]),
 	},
     methods: {
 		...mapActions({
