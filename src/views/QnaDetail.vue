@@ -23,41 +23,35 @@
       </tr>
       <tr>
         <th>답글</th>
-        <td>
-          <textarea cols="50" rows="10" v-model="reply"></textarea>
-        </td>
+        <td v-text="Qna.reply"></td>
       </tr>
     </table>
 
-    <span class="clearAllBtn" @click="setReply">완료</span>&nbsp;&nbsp;
     <span class="clearAllBtn" @click="back">돌아가기</span>&nbsp;&nbsp;
+    <span class="clearAllBtn" @click="rp">답글달기</span>&nbsp;&nbsp;
   </div>
 </template>
 
 <script>
 import {mapState} from "vuex";
 export default {
+    created() {
+        this.$store.dispatch("DETAILQNA", this.$route.params.num);
+    },
+
     computed: {
         ...mapState(["Qna"])
     },
-    data() {
-        return {
-            reply: ""
-        }
-    },
+
     methods: {
-        setReply() {
-            this.$store.commit("SETREPLY", this.reply);
-            this.$store.dispatch("REPLY", this.$store.state.Qna);
-            this.$router.push("/detail/Qna.num");
-    },
     back() {
             this.$router.push("/");
         },
+    rp() {
+    this.$router.push("/reply");
     }
+    },
 }
-
-
 </script>
 
 <style lang=""></style>

@@ -30,7 +30,7 @@ export default {
                 this.Qna.id = "";
                 this.Qna.title = "";
                 this.Qna.content = "";
-                this.$router.push("/list");
+                this.$router.push("/");
             } else {
                 alert("입력해주세요.")
             }

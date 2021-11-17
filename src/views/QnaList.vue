@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="word" />&nbsp;
+    <input type="text" v-model="word" @keyup.enter="search"/>&nbsp;
     <button @click="search">검색</button>
     <br />
     <hr />
@@ -8,7 +8,7 @@
       <transition-group name="list" tag="ul">
         <li v-for="qna in Qnas" :key="qna.num" class="shadow">
           {{ qna.num }}.
-          <router-link to="`/detail/${qna.num}`">{{ qna.title }}</router-link>
+          <router-link :to="`/detail/${qna.num}`">{{ qna.title }}</router-link>
           <!-- {{qna.wdate}} -->
           <span class="removeBtn" type="button" @click="removeQna(qna.num)">
             <i class="far fa-trash-alt" aria-hidden="true"></i>
