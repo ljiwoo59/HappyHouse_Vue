@@ -21,6 +21,9 @@ export default new Vuex.Store({
     DETAILQNA: (state, payload) => {
       state.Qna = payload;
     },
+    SETREPLY: (state, payload) => {
+      state.Qna.reply = payload;
+    }
   },
   actions: {
     ALLQNA: (store) => {
@@ -31,12 +34,12 @@ export default new Vuex.Store({
     ADDQNA: (store, payload) => {
       axios
         .post("/qna", {
-          num: payload.num,
+          id: payload.id,
           title: payload.title,
           content: payload.content,
         })
         .then(() => {
-          //store.dispatch("ALLQNA");
+          store.dispatch("ALLQNA");
         });
     },
     SEARCH: (store, payload) => {
@@ -57,12 +60,15 @@ export default new Vuex.Store({
     },
     DETAILQNA: (store, payload) => {
       axios.get("/qna/" + payload).then((response) => {
-        store.commit("DETAILANQ", response.data);
+        store.commit("DETAILQNA", response.data);
       });
     },
     REPLY: (store, payload) => {
       axios
         .put("/qna", {
+          num: payload.num,
+          title: payload.title,
+          content: payload.content,
           reply: payload.reply,
         })
         .then(() => {
