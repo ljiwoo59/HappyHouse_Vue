@@ -1,0 +1,6 @@
+구현 기능
+-Vue를 적용한 FrontEnd :
+ QnA 목록,
+ QnA 등록,
+ QnA 수정,
+ QnA 상세 조회,
