@@ -23,7 +23,7 @@ export default new Vuex.Store({
     },
     SETREPLY: (state, payload) => {
       state.Qna.reply = payload;
-    }
+    },
   },
   actions: {
     ALLQNA: (store) => {
@@ -76,9 +76,9 @@ export default new Vuex.Store({
           store.dispatch("DETAILQNA", payload.num);
         });
     },
-    DELETEQNA: (payload) => {
-      axios.delete("http://localhost/qna/" + payload).then(() => {
-        this.selectAll();
+    DELETEQNA: (store, payload) => {
+      axios.delete("/qna/" + payload).then(() => {
+        store.dispatch("ALLQNA");
       });
     },
   },
